@@ -750,7 +750,8 @@ a:focus {
 }
 /* 通用：section 里的图文行 */
 .section-row {
-  align-items: center;              /* 文字和图片垂直大致居中 */
+  align-items: center;
+  gap: 0.75rem; 
 }
 
 /* 桌面端：左窄右宽的布局（40% 文本，60% 图片） */
@@ -758,12 +759,15 @@ a:focus {
   .section-row .section-text {
     flex: 0 0 50%;
     max-width: 50%;
-    padding-right: 1rem;
+    padding-right: 0.5rem;
+    padding-left: 0; 
   }
 
   .section-row .section-figure {
     flex: 0 0 50%;
     max-width: 50%;
+    padding-left: 0.5rem;
+    padding-right: 0;
   }
 }
 
