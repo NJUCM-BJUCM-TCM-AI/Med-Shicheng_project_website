@@ -793,8 +793,8 @@ a:focus {
   display: inline-flex;
   align-items: center;
   max-width: 900px;       /* 控制行宽，看着像一句“横幅” */
-  font-size: 1.3rem;
-  font-weight: 600;
+  font-size: 1.2rem;
+  font-weight: 500;
   color: #111827;         /* 深一点的文字颜色 */
 }
 
