@@ -780,5 +780,15 @@ a:focus {
 .section .container.is-max-desktop {
   max-width: 1300px;
 }
+/* 顶部大标题：让文字区域稍微宽一点，并控制字号 */
+.hero .publication-title {
+  max-width: 1100px;   /* 默认 container 比较窄，这里放宽一点 */
+  margin: 0 auto;      /* 让这块在容器中水平居中 */
+}
 
+@media screen and (min-width: 1024px) {
+  .hero .publication-title {
+    font-size: 2.6rem; /* 比 Bulma 默认 is-1 略小一点，避免再次自动换行太多 */
+  }
+}
 
