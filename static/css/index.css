@@ -780,19 +780,4 @@ a:focus {
 .section .container.is-max-desktop {
   max-width: 1300px;
 }
-.hero .publication-title {
-  max-width: 1500px;      /* 你说想要更宽，就留 1500 */
-  margin: 0 auto 1rem;
-  text-align: center;
-}
-
-.hero .publication-title .title-line {
-  display: block;         /* 每个 span 单独一行 */
-}
-
-@media screen and (min-width: 1024px) {
-  .hero .publication-title {
-    font-size: 2.6rem;    /* 避免一句太长再被浏览器硬拆 */
-  }
-}
 
