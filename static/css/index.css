@@ -756,14 +756,14 @@ a:focus {
 /* 桌面端：左窄右宽的布局（40% 文本，60% 图片） */
 @media screen and (min-width: 1024px) {
   .section-row .section-text {
-    flex: 0 0 40%;
-    max-width: 40%;
-    padding-right: 2rem;
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding-right: 1rem;
   }
 
   .section-row .section-figure {
-    flex: 0 0 60%;
-    max-width: 60%;
+    flex: 0 0 50%;
+    max-width: 50%;
   }
 }
 
@@ -773,6 +773,8 @@ a:focus {
   height: auto;
   display: block;
 }
-
+.section .container.is-max-desktop {
+  max-width: 1150px;  /* 你可以试 1100 / 1200 自己调 */
+}
 
 
