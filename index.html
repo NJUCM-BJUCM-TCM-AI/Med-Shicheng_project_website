@@ -254,19 +254,30 @@
 <section class="section">
   <div class="container is-max-desktop">
     <h2 class="title is-3 has-text-centered">Med-Schiehng TCM heritage Framework</h2>
-    <div class="columns">
-      <div class="column is-half section-figure">
+    <div class="columns is-variable is-8 section-row">
+      <!-- 左：文本 -->
+      <div class="column section-text">
+        <div class="content has-text-justified">
+          <p>
+            We propose Med-Shicheng, a general paradigm that enables lightweight LLMs to inherit the
+            diagnostic-and-therapeutic (D&amp;T) expertise of distinguished TCM doctors. The framework
+            contains five progressive stages: (1) building a medical in-domain foundation model, (2) learning
+            regular TCM D&amp;T strategies, (3) reasoning-enhanced D&amp;T fine-tuning, (4) fine-tuning on
+            each doctor’s unique medical knowledge, and (5) reinforcement-style refinement of their
+            distinctive reasoning and treatment strategies. For every stage, we curate task-specific
+            datasets that follow TCM clinical logic and cover the full chain from etiology analysis to
+            prescription and follow-up adjustment. This staged design turns a general-purpose LLM into a
+            doctor-aware medical agent that can internalize multiple masters’ styles within a single model
+            and switch behaviors according to the target physician.
+          </p>
+        </div>
+      </div>
+      <!-- 右：大图 -->
+      <div class="column section-figure">
         <figure class="image">
           <img src="static/images/section1.png"
                alt="Med-Schiehng TCM heritage Framework illustration">
         </figure>
-      </div>
-      <div class="column is-half section-text">
-        <div class="content has-text-justified">
-          <p>
-            We propose Med-Shicheng, a general paradigm that enables lightweight LLMs to inherit the diagnostic-and-therapeutic (D&T) expertise of distinguished TCM doctors. The framework contains five progressive stages: (1) building a medical in-domain foundation model, (2) learning regular TCM D&T strategies, (3) reasoning-enhanced D&T fine-tuning, (4) fine-tuning on each doctor’s unique medical knowledge, and (5) reinforcement-style refinement of their distinctive reasoning and treatment strategies. For every stage, we curate task-specific datasets that follow TCM clinical logic and cover the full chain from etiology analysis to prescription and follow-up adjustment. This staged design turns a general-purpose LLM into a doctor-aware medical agent that can internalize multiple masters’ styles within a single model and switch behaviors according to the target physician. In our experiments, this framework supports consistent training and evaluation across experts along four dimensions: diagnostic accuracy, reasoning quality, expert alignment, and knowledge recall.
-          </p>
-        </div>
       </div>
     </div>
   </div>
@@ -275,37 +286,100 @@
 <section class="section hero is-light">
   <div class="container is-max-desktop">
     <h2 class="title is-3 has-text-centered">Evaluatino Benchmark</h2>
-    <div class="columns">
-        <div class="column is-half section-figure">
-          <p>
-            Our evaluation framework combines automated LLM-as-a-judge scoring with expert TCM assessment. For automatic evaluation, we use state-of-the-art general LLMs, DeepSeek-V3.2 and GPT-5, as judges. Each model’s response to a clinical case is scored twice, once by each judge, who compare the generated answer with the gold label and decide how clinically desirable it is. Because every task response is a long, structured text spanning seven components, classical token-level metrics such as accuracy, recall or F1-score cannot reflect quality; holistic judging by strong LLMs is more suitable. To complement this, we conduct human evaluation with 18 senior TCM physicians, grouped around the five target masters they directly studied under. Using Delphi consensus, we provide unified criteria and ask them to rate all models along five dimensions: (1) similarity to the target master’s D&T style, (2) consistency with TCM philosophical principles, (3) safety and risk control, (4) therapeutic completeness, and (5) clinical coherence.
-          </p>
-        </div>
-      </div>
-      <div class="column is-half section-figure">
+    <div class="columns is-variable is-8 section-row">
+      <!-- 左：大图 -->
+      <div class="column section-figure">
         <figure class="image">
           <img src="static/images/section2.png"
-               alt="Evaluatino Benchmark illustration">
+               alt="Evaluation framework illustration">
         </figure>
+      </div>
+      <!-- 右：文本 -->
+      <div class="column section-text">
+        <div class="content has-text-justified">
+          <p>
+            Our evaluation framework combines automated LLM-as-a-judge scoring with expert TCM assessment.
+            For automatic evaluation, we use state-of-the-art general LLMs, DeepSeek-V3.2 and GPT-5, as
+            judges. Each model’s response to a clinical case is scored twice, once by each judge, who
+            compare the generated answer with the gold label and decide how clinically desirable it is.
+            Because every task response is a long, structured text spanning seven components, classical
+            token-level metrics such as accuracy, recall or F1-score cannot reflect quality; holistic
+            judging by strong LLMs is more suitable. To complement this, we conduct human evaluation with
+            18 senior TCM physicians, grouped around the five target masters they directly studied under.
+            Using Delphi consensus, we provide unified criteria and ask them to rate all models along five
+            dimensions: (1) similarity to the target master’s D&amp;T style, (2) consistency with TCM
+            philosophical principles, (3) safety and risk control, (4) therapeutic completeness, and
+            (5) clinical coherence.
+          </p>
+        </div>
       </div>
     </div>
   </div>
 </section>
+
 
 <section class="section">
   <div class="container is-max-desktop">
     <h2 class="title is-3 has-text-centered">Automatic Evaluations</h2>
-    <div class="columns">
-      <div class="column is-half section-text">
-        <figure class="image">
-          <img src="static/images/section3.png"
-               alt="Automatic Evaluations illustration">
-        </figure>
-      </div>
-      <div class="column is-half section-text">
+    <div class="columns is-variable is-8 section-row">
+      <!-- 左：文本 -->
+      <div class="column section-text">
         <div class="content has-text-justified">
           <p>
-            Automatic evaluation by DeepSeek-V3.2 and GPT-5 shows broadly consistent trends across all target TCM masters. One notable exception is HuatuoGPT2-7B on Dr. Huaitang Du’s cases, where it achieves unusually high scores for prescriptions and treatment principles by reproducing label-like content, suggesting possible training-data overlap. Overall, models naturally split into two tiers. The high-performing group includes Med-Shicheng, GPT-5, DeepSeek-R1, Qwen3-235B-A22B-Thinking, and Gemini-2.5-Pro; the lower-performing group includes Qwen2.5-1.5B-Instruct, Tianyi, and HuatuoGPT2. Med-Shicheng is the only lightweight model in the top tier, delivering content quality comparable to hundred-billion-parameter systems. However, no single model dominates every doctor or metric. Using DeepSeek-V3.2 as judge, DeepSeek and GPT-5 often rank in the top two, but Med-Shicheng, Gemini-2.5-Pro and Qwen3-235B-A22B-Thinking sometimes outperform them, for example on the cases of Fengchun Wang, Shaoqin Zhao and Huaitang Du. All reported values are averaged over all test cases for each master, providing a stable view of model rankings rather than relying on single examples.
+            Automatic evaluation by DeepSeek-V3.2 and GPT-5 shows broadly consistent trends across all
+            target TCM masters. One notable exception is HuatuoGPT2-7B on Dr. Huaitang Du’s cases, where it
+            achieves unusually high scores for prescriptions and treatment principles by reproducing
+            label-like content, suggesting possible training-data overlap. Overall, models naturally split
+            into two tiers. The high-performing group includes Med-Shicheng, GPT-5, DeepSeek-R1,
+            Qwen3-235B-A22B-Thinking, and Gemini-2.5-Pro; the lower-performing group includes
+            Qwen2.5-1.5B-Instruct, Tianyi, and HuatuoGPT2. Med-Shicheng is the only lightweight model in
+            the top tier, delivering content quality comparable to hundred-billion-parameter systems.
+            However, no single model dominates every doctor or metric. Using DeepSeek-V3.2 as judge,
+            DeepSeek and GPT-5 often rank in the top two, but Med-Shicheng, Gemini-2.5-Pro and
+            Qwen3-235B-A22B-Thinking sometimes outperform them, for example on the cases of Fengchun Wang,
+            Shaoqin Zhao and Huaitang Du.
+          </p>
+        </div>
+      </div>
+      <!-- 右：大图 -->
+      <div class="column section-figure">
+        <figure class="image">
+          <img src="static/images/section3.png"
+               alt="Automatic evaluation results illustration">
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Human Doctors Evaluations</h2>
+    <div class="columns is-variable is-8 section-row">
+      <!-- 左：大图 -->
+      <div class="column section-figure">
+        <figure class="image">
+          <img src="static/images/section4.png"
+               alt="Human doctor evaluation results illustration">
+        </figure>
+      </div>
+      <!-- 右：文本 -->
+      <div class="column section-text">
+        <div class="content has-text-justified">
+          <p>
+            Human evaluation reveals a different picture from LLM-as-a-judge scoring. We ask 18 senior TCM
+            physicians to rate all models on each master’s cases, along five dimensions: similarity to the
+            target physician, adherence to TCM theory, safety, therapeutic completeness, and clinical
+            coherence. Overall, human doctors assign Med-Shicheng higher and more stable scores for most
+            masters, including Huaitang Du, Xiaohong Gu, Fengchun Wang and Bowei Qin, whereas GPT-5 and
+            DeepSeek-V3.2 do not consistently place it near the top. This suggests that very large general
+            LLMs can judge long, complex answers under well-designed prompts, but struggle with
+            fine-grained distinctions in individualized clinical style. They tend to evaluate with generic
+            TCM knowledge, even for widely documented experts such as Dr. Du, while human physicians can
+            recognize subtle signatures of each master’s system. The gap is especially visible for Bowei
+            Qin’s cases, where clinicians rank Med-Shicheng near second, but LLM judges push it down to
+            around fourth.
           </p>
         </div>
       </div>
@@ -313,26 +387,6 @@
   </div>
 </section>
 
-<section class="section hero is-light">
-  <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Human Doctors Evaluations</h2>
-    <div class="columns">
-      <div class="column is-half section-text">
-        <div class="content has-text-justified">
-          <p>
-            Human evaluation reveals a different picture from LLM-as-a-judge scoring. We ask 18 senior TCM physicians to rate all models on each master’s cases, along five dimensions: similarity to the target physician, adherence to TCM theory, safety, therapeutic completeness, and clinical coherence. Overall, human doctors assign Med-Shicheng higher and more stable scores for most masters, including Huaitang Du, Xiaohong Gu, Fengchun Wang and Bowei Qin, whereas GPT-5 and DeepSeek-V3.2 do not consistently place it near the top. This suggests that very large general LLMs can judge long, complex answers under well-designed prompts, but struggle with fine-grained distinctions in individualized clinical style. They tend to evaluate with generic TCM knowledge, even for widely documented experts such as Dr. Du, while human physicians can recognize subtle signatures of each master’s system. The gap is especially visible for Bowei Qin’s cases, where clinicians rank Med-Shicheng near second, but LLM judges push it down to around fourth.
-          </p>
-        </div>
-      </div>
-      <div class="column is-half section-figure">
-        <figure class="image">
-          <img src="static/images/section4.png"
-               alt="Human Doctors Evaluations illustration">
-        </figure>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- End main content sections -->
 
