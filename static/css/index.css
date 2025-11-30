@@ -748,6 +748,29 @@ a:focus {
     box-shadow: none !important;
   }
 }
+/* 让 section 里的图和文字像 ProbeX 那样顶对齐 */
+.section .columns {
+  align-items: flex-start;  /* 取消垂直居中，改为顶部对齐 */
+}
 
+/* 图片占满自己那一列的宽度 */
+.section .section-figure .image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 桌面端：让图片列稍微大一点，看起来不那么挤 */
+@media screen and (min-width: 1024px) {
+  .section .section-figure {
+    flex: 0 0 55%;
+    max-width: 55%;
+  }
+
+  .section .section-text {
+    flex: 0 0 45%;
+    max-width: 45%;
+  }
+}
 
 
